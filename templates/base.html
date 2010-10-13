@@ -1,0 +1,40 @@
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}" xml:lang="{{ LANGUAGE_CODE }}" lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{% if SITE_NAME %}{{ SITE_NAME }} : {% endif %}{% block head-title %}{% endblock %}</title>
+
+    {% block css-include %}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}base.css" />
+    {% endblock %}
+
+    {% block js-include %}
+    <script src="{{ MEDIA_URL }}js/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="{{ MEDIA_URL }}js/base.js" type="text/javascript"></script>
+    {% endblock %}
+  </head>
+
+  <body class="{% block body-class %}{% endblock %}">
+    {% block body %}
+
+    <div class="messages">
+      {% include "_messages.html" %}
+    </div>
+
+    <div class="header">
+      {% block header %}{% endblock %}
+    </div>
+
+    <div class="content">
+      {% block content %}It works!{% endblock %}
+    </div>
+
+    <div class="footer">
+      {% block footer %}{% endblock %}
+    </div>
+
+    {% endblock %}
+    {% block js-include-bottom %}{% endblock %}
+  </body>
+</html>
