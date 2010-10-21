@@ -1,0 +1,164 @@
+.body {
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: table;
+}
+
+.body-content {
+    display:block;
+    margin: 1em auto;
+    width: 1024px;
+}
+
+
+
+/* MENUS */
+ul.menu {
+    list-style-type: none;
+}
+
+.menu {
+    padding: 10px 5px 10px 10px;
+}
+
+.menu-item {
+    margin-right: 10px;
+    display: inline;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: black;
+    padding: 4px 7px 4px 7px;
+    border: 1px solid black;
+
+    background: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.16, rgb(140,140,140)),
+	color-stop(0.35, rgb(242,242,242))
+    );
+    background: -moz-linear-gradient(
+	center bottom,
+	rgb(140,140,140) 16%,
+	rgb(242,242,242) 35%
+    );
+}
+/* END OF MENUS */
+
+
+
+/* OBJECTS */
+.objects-group-container {
+    border: 3px solid #CCCCCC;
+    margin-bottom: 5px;
+}
+
+.objects-group-container h2 {
+    padding: 1px 3px 1px 3px;
+}
+
+.objects-group-container-title {
+    padding: 0px 0px 0px 5px;
+}
+
+.objects-group-title {
+    margin-top: 20px;
+    padding: 0px 0px 0px 5px;
+    font-weight: bold;
+    border-bottom: 3px solid #CCCCCC;
+}
+
+.small-objects-container {
+    width: 400px;
+}
+
+.medium-objects-container {
+    width: 600px;
+}
+
+.big-objects-container {
+    width: 700px;
+}
+
+
+.large-objects-container {
+    width: 800px;
+}
+
+.full-objects-container,
+.small-objects-container,
+.medium-objects-container,
+.big-objects-container,
+.large-objects-container {
+    margin: 0px 0px 0px 5px;
+    border: 3px solid #CCCCCC;
+}
+
+.list-table {
+    margin: 0px 0px 0px 0px;
+    padding: 5px 5px 5px 5px;
+    cellspacing:5;
+    border-collapse:collapse;
+    border-spacing:1;
+    empty-cells:show;
+    width: 100%;
+}
+
+.list-table-row:hover {
+    background: #EEEFFF;
+}
+
+.list-table tbody td, .list-table tbody th {
+    padding: 3px 5px 3px 5px;
+}
+
+.list-table tbody td.h-int-value, .list-table thead th.h-field-value  {
+    width: 30%;
+    text-align: left;
+}
+
+.list-table tbody td.h-int-value, .list-table thead th.h-int-value  {
+    width: 10%;
+    text-align: left;
+}
+
+.list-table tbody td.h-date-value, .list-table thead th.h-date-value  {
+    width: 15%;
+    text-align: left;
+}
+
+
+.list-table tbody td.h-actions-value, .list-table thead th.h-actions-value  {
+    width: 25%;
+    text-align: left;
+}
+
+
+.list-table tbody td.field-value, .list-table thead th.field-value {
+    width: 30%;
+}
+
+.list-table tbody td.int-value, .list-table thead th.int-value  {
+    width: 10%;
+    text-align: right;
+}
+
+
+.list-table tbody td.date-value, .list-table thead th.date-value  {
+    width: 15%;
+    text-align: right;
+}
+
+
+.list-table tbody td.actions-value, .list-table thead th.acitons-value  {
+    width: 25%;
+}
+
+
+.list-table thead th {
+    padding: 3px 5px 3px 5px;
+}
+/* END OF OBJECTS */

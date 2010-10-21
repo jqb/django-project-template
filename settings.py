@@ -1,4 +1,4 @@
-import os 
+import os
 
 
 # Change THIS! per project
@@ -7,10 +7,9 @@ ROOT_URLCONF = 'django-project-template.urls'
 SECRET_KEY = '+x&(yo6og$2yn)byx274l(ej31ae5%kt@oi**du6f$0r7wqq9y'
 
 
-BASE_LOCATION = '/'
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static')
-MEDIA_URL = '%s/' % '/'.join([BASE_LOCATION, 'static'])
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'site_media', 'static')
+MEDIA_URL = '/%s/' % '/'.join(['site_media', 'static'])
 
 
 DEBUG = True
@@ -65,7 +64,11 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'conf.context_processors.conf',
     )
-TEMPLATE_SETTINGS = ['SITE_NAME']
+
+JQUERY_VER = '1.4.2'
+JQUERY_UI_VER = '1.8.5'
+JQUERY_UI_THEME = 'ui-lightness'
+TEMPLATE_SETTINGS = ['SITE_NAME', 'JQUERY_VER', 'JQUERY_UI_VER', 'JQUERY_UI_THEME']
 
 
 
@@ -92,4 +95,4 @@ for setting in dir(config_module):
 
 
 # cleaninig up
-del config_module, setting
+del config_module, setting, ENV
