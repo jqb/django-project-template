@@ -28,8 +28,11 @@ INSTALLED_APPS = (
     # 'django.contrib.auth',
     # 'django.contrib.contenttypes',
     # 'django.contrib.sites',
+    # 'django.contrib.admin',
     'django.contrib.sessions',
     'django.contrib.messages',
+
+    'annoying',
 
     'db',
     )
@@ -48,6 +51,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'annoying.middlewares.StaticServe',
     )
 
 

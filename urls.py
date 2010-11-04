@@ -16,11 +16,3 @@ urlpatterns += patterns(
     (r'^$', 'simple.direct_to_template', {'template': 'project_base.html'}),
     # (r'^$', 'simple.redirect_to', {'url': ''}),
     )
-
-
-if settings.DEBUG:
-    urlpatterns += patterns(                                
-        '',
-        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {
-                'document_root': settings.MEDIA_ROOT, 'show_indexes': True }),
-        )
