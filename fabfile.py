@@ -6,9 +6,6 @@ from fabric.api import *
 from fabric.contrib.project import rsync_project
 
 
-env.project_name = 'project'
-
-
 # sample 'context' configuration
 # def example():
 #     env.hosts = ['example.com']
@@ -17,7 +14,7 @@ env.project_name = 'project'
 
 
 def setup():
-    run('mkdir -p %s; cd %s; virtualenv $(pwd);' % (env.path, env.path))
+    run('mkdir -p %s && cd %s && virtualenv $(pwd)' % (env.path, env.path))
 
 
 def push():
@@ -29,12 +26,12 @@ def push():
         exclude=[".git*", ".svn*", "*.pyc", "*.pyo"])
 
     run("chown :www-data -R %s/" % env.path)
-    run("chmod g+rw -R %s/db")
+    run("chmod g+rw -R %s/%s/db" % (env.path, 'project'))
 
 
 def requirements():
     """Install the required packages from the requirements file using pip"""
-    run('cd %s; pip install -E $(pwd) -r requirements.txt' % env.path)
+    run('cd %s && pip install -E $(pwd) -r requirements.txt' % env.path)
 
 
 def restart():
@@ -42,9 +39,16 @@ def restart():
     sudo("/etc/init.d/apache2 restart")
 
 
+def setup_and_deploy():
+    """Full deploy: push and start"""
+    setup()
+    push()
+    requirements()
+    restart()
+
+
 def deploy():
     """Full deploy: push and start"""
     push()
     requirements()
     restart()
-
