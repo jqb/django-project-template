@@ -6,7 +6,7 @@
     <title>{% if SITE_NAME %}{{ SITE_NAME }} : {% endif %}{% block head-title %}{% endblock %}</title>
 
     {% block css-include %}
-    <link rel="stylesheet" href="{{ MEDIA_URL }}css/ui-lightness/jquery-ui-{{ JQUERY_UI_VER }}.custom.css" type="text/css" />
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/{{ JQUERY_UI_VER }}/themes/{{ JQUERY_UI_THEME }}/jquery-ui.css" type="text/css" />
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/base.css" type="text/css" />
     {% endblock %}
 
@@ -37,6 +37,5 @@
     </div>
 
     {% endblock %}
-    {% block js-include-bottom %}{% endblock %}
   </body>
 </html>
