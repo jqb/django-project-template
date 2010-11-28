@@ -13,6 +13,7 @@
     {% block js-include %}
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/{{ JQUERY_VER }}/jquery.min.js" type="text/javascript"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/{{ JQUERY_UI_VER }}/jquery-ui.min.js" type="text/javascript"></script>
+    {% if CLASSY_VER %}<script type="text/javascript" src="https://github.com/mitsuhiko/classy/raw/{{ CLASSY_VER }}/classy.js"></script>{% endif %}
     <script src="{{ MEDIA_URL }}js/base.js" type="text/javascript"></script>
     {% endblock %}
   </head>

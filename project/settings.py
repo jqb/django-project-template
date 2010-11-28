@@ -3,13 +3,13 @@ import os
 
 # Change THIS! per project
 SITE_NAME = 'Project'
-ROOT_URLCONF = 'django-project-template.urls'
+ROOT_URLCONF = 'project.urls'
 SECRET_KEY = '+x&(yo6og$2yn)byx274l(ej31ae5%kt@oi**du6f$0r7wqq9y'
 
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'site_media', 'static')
-MEDIA_URL = '/%s/' % '/'.join(['site_media', 'static'])
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'site_media')
+MEDIA_URL = '/%s/' % '/'.join(['site_media'])
 
 
 DEBUG = True
@@ -33,6 +33,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
 
     'annoying',
+    'debug_toolbar',
 
     'db',
     )
@@ -51,7 +52,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+
     'annoying.middlewares.StaticServe',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     )
 
 
@@ -69,11 +72,21 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'conf.context_processors.conf',
     )
 
-JQUERY_VER = '1.4.2'
+
+JQUERY_VER = '1.4.3'
 JQUERY_UI_VER = '1.8.5'
 JQUERY_UI_THEME = 'ui-lightness'
-TEMPLATE_SETTINGS = ['SITE_NAME', 'JQUERY_VER', 'JQUERY_UI_VER', 'JQUERY_UI_THEME']
+# JQUERY UI PROVIDES FOLLOWING THEMES:
+# base, black-tie, blitzer, cupertino, dark-hive, dot-luv,
+# eggplant, excite-bike, flick, hot-sneaks, humanity,
+# le-frog, mint-choc, overcast, pepper-grinder, redmond,
+# smoothness, south-street, start, sunny, swanky-purse,
+# trontastic, ui-darkness, ui-lightness, vader
 
+
+# small javascript library that provides python-like classes in javascript.
+# If don't want to use it you can set CLASSY_VER to None
+CLASSY_VER = '1.3'
 
 
 # APPS SETTINGS #########################################
@@ -82,7 +95,30 @@ TEMPLATE_SETTINGS = ['SITE_NAME', 'JQUERY_VER', 'JQUERY_UI_VER', 'JQUERY_UI_THEM
 
 # django.contrib.admin
 # ADMIN_MEDIA_PREFIX = '/media/'
+
+# django debug toolbar
+INTERNAL_IPS = ('127.0.0.1',)
+DEBUG_TOOLBAR_PANELS = (
+    'debug_toolbar.panels.version.VersionDebugPanel',
+    'debug_toolbar.panels.timer.TimerDebugPanel',
+    'debug_toolbar.panels.settings_vars.SettingsVarsDebugPanel',
+    'debug_toolbar.panels.headers.HeaderDebugPanel',
+    'debug_toolbar.panels.request_vars.RequestVarsDebugPanel',
+    'debug_toolbar.panels.template.TemplateDebugPanel',
+    'debug_toolbar.panels.sql.SQLDebugPanel',
+    'debug_toolbar.panels.signals.SignalDebugPanel',
+    'debug_toolbar.panels.logger.LoggingPanel',
+    )
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS' : False
+}
 # APPS SETTINGS #########################################
+
+
+
+# add here options which you'd like to have in templates
+TEMPLATE_SETTINGS = ['SITE_NAME', 'JQUERY_VER', 'JQUERY_UI_VER',
+                     'JQUERY_UI_THEME', 'CLASSY_VER']
 
 
 
