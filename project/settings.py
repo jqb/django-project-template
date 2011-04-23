@@ -6,11 +6,7 @@ SITE_NAME = 'Project'
 ROOT_URLCONF = 'project.urls'
 SECRET_KEY = '+x&(yo6og$2yn)byx274l(ej31ae5%kt@oi**du6f$0r7wqq9y'
 
-
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'site_media')
-MEDIA_URL = '/%s/' % '/'.join(['site_media'])
-
 
 DEBUG = True
 TEMPLATE_DEBUG = True
@@ -31,6 +27,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.staticfiles',
 
     'annoying',
     'debug_toolbar',
@@ -52,9 +49,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-
-    'annoying.middlewares.StaticServe',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'conf.middleware.StaticServe',
     )
 
 
@@ -68,6 +64,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
+    'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
     'conf.context_processors.conf',
     )
@@ -87,6 +84,10 @@ JQUERY_UI_THEME = 'ui-lightness'
 # small javascript library that provides python-like classes in javascript.
 # If don't want to use it you can set CLASSY_VER to None
 CLASSY_VER = '1.3'
+
+
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'site_media', 'media')
+MEDIA_URL = '%s/' % '/'.join(['site_media', 'media'])
 
 
 # APPS SETTINGS #########################################
@@ -112,6 +113,10 @@ DEBUG_TOOLBAR_PANELS = (
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS' : False
 }
+
+# django.contrib.staticfiles
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'site_media', 'static')
+STATIC_URL = '%s/' % '/'.join(['site_media', 'static'])
 # APPS SETTINGS #########################################
 
 

@@ -14,5 +14,4 @@ urlpatterns = patterns(
 urlpatterns += patterns(
     'django.views.generic',
     (r'^$', 'simple.direct_to_template', {'template': 'project_base.html'}),
-    # (r'^$', 'simple.redirect_to', {'url': ''}),
     )
