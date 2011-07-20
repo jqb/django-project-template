@@ -1,6 +1,5 @@
 import os
 
-
 # Change THIS! per project
 SITE_NAME = 'Project'
 ROOT_URLCONF = 'project.urls'
@@ -29,7 +28,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'annoying',
     'debug_toolbar',
 
     'db',
@@ -49,8 +47,12 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
     'conf.middleware.StaticServe',
+    'conf.middleware.MediaServe',
+
+    # this debug_toolbar middleware need to be in the end
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     )
 
 
@@ -81,13 +83,8 @@ JQUERY_UI_THEME = 'ui-lightness'
 # trontastic, ui-darkness, ui-lightness, vader
 
 
-# small javascript library that provides python-like classes in javascript.
-# If don't want to use it you can set CLASSY_VER to None
-CLASSY_VER = '1.3'
-
-
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'site_media', 'media')
-MEDIA_URL = '%s/' % '/'.join(['site_media', 'media'])
+MEDIA_URL = '/%s/' % '/'.join(['media'])
 
 
 # APPS SETTINGS #########################################
@@ -116,14 +113,14 @@ DEBUG_TOOLBAR_CONFIG = {
 
 # django.contrib.staticfiles
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'site_media', 'static')
-STATIC_URL = '%s/' % '/'.join(['site_media', 'static'])
+STATIC_URL = '%s/' % '/'.join(['static'])
 # APPS SETTINGS #########################################
 
 
 
 # add here options which you'd like to have in templates
 TEMPLATE_SETTINGS = ['SITE_NAME', 'JQUERY_VER', 'JQUERY_UI_VER',
-                     'JQUERY_UI_THEME', 'CLASSY_VER']
+                     'JQUERY_UI_THEME']
 
 
 

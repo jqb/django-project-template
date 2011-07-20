@@ -1,7 +1,6 @@
 Django project directory layout.
 ================================
 
-
 This is Django project directory layout which I use.
 
 Included:
@@ -25,12 +24,7 @@ Included:
          # trontastic, ui-darkness, ui-lightness, vader
 
 
-         # small javascript library that provides python-like classes in javascript.
-         # If don't want to use it you can set CLASSY_VER to None
-         CLASSY_VER = '1.3'
-         # ...
-
-    - django-annoying and django-debug-toolbar are already there,
+    - django-debug-toolbar included,
     - basic configuration for developement with sqlite3
 
 
@@ -39,9 +33,8 @@ Concepts:
 ---------
     - project's (django) applications are in ./project/apps/ directory.
       (git doesn't allow to keep empty directories so you have to create it by hand)
-    - it uses jquery at google's ajax: googleapis.com, and classy library directly
-      from the github repository, so keep it in mind that javaScript won't work
-      without internet connection.
+    - it uses jquery at google's ajax: googleapis.com so keep it in mind that
+      javaScript won't work without internet connection.
 
 
 
